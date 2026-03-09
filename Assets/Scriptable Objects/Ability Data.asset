@@ -16,5 +16,3 @@ MonoBehaviour:
     cooldown: 5
     effects:
     - {fileID: 11400000, guid: 55fe53435d863484296e193bf885d878, type: 2}
-    - {fileID: 11400000, guid: 55fe53435d863484296e193bf885d878, type: 2}
-    - {fileID: 11400000, guid: 55fe53435d863484296e193bf885d878, type: 2}

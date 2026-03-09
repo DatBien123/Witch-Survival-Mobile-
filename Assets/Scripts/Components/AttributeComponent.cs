@@ -35,23 +35,28 @@ public class AttributeComponent : MonoBehaviour
     }
 
     float elapsedTime = 0.0f;
+    float elapsedPerTimeUpdate = 0.0f;
     IEnumerator UpdateAttributes(Effects effectData)
     {
-        if (effectData.isApplyOnStart)
-        {
-            UpdateAttribute(effectData);
-        }
+        //if (effectData.isApplyOnStart)
+        //{
+        //    UpdateAttribute(effectData);
+        //}
 
         while (elapsedTime < effectData.duration)
         {
-            if(elapsedTime >= effectData.perTimeUpdate)
+            if(elapsedPerTimeUpdate >= effectData.perTimeUpdate)
             {
                 UpdateAttribute(effectData);
+                elapsedPerTimeUpdate = 0;
             }
             elapsedTime += Time.deltaTime;
+            elapsedPerTimeUpdate+= Time.deltaTime;
             yield return null;
         }
 
+        elapsedPerTimeUpdate = 0;
+        elapsedTime = 0;
     }
 
     void UpdateAttribute(Effects effectData)

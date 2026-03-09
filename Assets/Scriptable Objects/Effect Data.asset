@@ -15,8 +15,8 @@ MonoBehaviour:
   data:
     attributes:
       AttributeType: 0
-      amount: 0
-    type: 1
-    isApplyOnStart: 0
-    duration: 0
-    perTimeUpdate: 0
+      amount: -10
+    type: 0
+    isApplyOnStart: 1
+    duration: 5
+    perTimeUpdate: 1

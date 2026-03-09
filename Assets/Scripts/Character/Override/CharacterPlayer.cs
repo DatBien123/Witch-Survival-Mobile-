@@ -84,13 +84,7 @@ using UnityEngine.InputSystem;
             GroundedCheck();
             Move();
 
-        if (Keyboard.current.xKey.wasPressedThisFrame)
-        {
-            if (abilities.Count > 0)
-            {
-                ActivateAbility(abilities[0]);
-            }
-        }
+
         }
         protected override void LateUpdate()
         {

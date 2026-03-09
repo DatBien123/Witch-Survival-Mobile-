@@ -176,7 +176,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1170744857039610}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5141,7 +5141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b86b7eae21807c840bbd05aa7b61ea41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityOwned: {fileID: 0}
+  owner: {fileID: 0}
   target: {fileID: 0}
   searchRadius: 20
   enemyLayer:
@@ -5161,8 +5161,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   caster: {fileID: 0}
   target: {fileID: 0}
-  ability: {fileID: 0}
-  rb: {fileID: 0}
+  ability: {fileID: 7345645707686420024}
+  rb: {fileID: 54526025840063382}
   speed: 10
   targetLayer:
     serializedVersion: 2
@@ -5181,9 +5181,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   causer: {fileID: 0}
   targetApplied: {fileID: 0}
-  isActivateAble: 1
-  currentCooldown: 0
-  targetingComponent: {fileID: 0}
   trajectory: {fileID: 4827576569696486493, guid: 9ae5e242e15c7494a8bd65e18812ce62,
     type: 3}
   abilityData: {fileID: 11400000, guid: 00083fa133ef8e44c807c813571ae207, type: 2}

@@ -28,7 +28,7 @@ public class ProjectileTrajectory : Trajectory
         if ((targetLayer.value & (1 << other.gameObject.layer)) == 0)
             return;
 
-        Character hitTarget = other.GetComponent<Character>();
+        CharacterEnemy hitTarget = other.GetComponent<CharacterEnemy>();
         if (hitTarget == null || hitTarget == caster)
             return;
 

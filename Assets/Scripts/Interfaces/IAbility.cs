@@ -3,8 +3,7 @@ public interface IAbility
 {
 
     #region [Game Actions]
-    void Activate(Character target = null);
-    void StartCooldown();
+    void Activate(Character causer, Character target = null);
     void Cancel();
     void Deactivate();
     #endregion

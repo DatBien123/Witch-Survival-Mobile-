@@ -2,21 +2,30 @@ using UnityEngine;
 
 public class TargetingComponent : MonoBehaviour
 {
-    public Ability abilityOwned;
+    public Character owner;
     public Character target;
 
-    [Header("Targeting Settings")]
     public float searchRadius = 10f;
     public LayerMask enemyLayer;
 
-    private Collider[] results = new Collider[32];
+    Collider[] results = new Collider[32];
 
-    private void Awake()
+    TickTimer tick;
+
+    void Awake()
     {
-        abilityOwned = GetComponent<Ability>();
+        owner = GetComponent<Character>();
+
+        tick = new TickTimer(0.3f);
+        tick.OnTick += UpdateTarget;
     }
 
-    public Character FindNearestTarget()
+    void Update()
+    {
+        tick.Update(Time.deltaTime);
+    }
+
+    void UpdateTarget()
     {
         int hitCount = Physics.OverlapSphereNonAlloc(
             transform.position,
@@ -32,7 +41,7 @@ public class TargetingComponent : MonoBehaviour
         {
             Character enemy = results[i].GetComponent<Character>();
 
-            if (enemy == null || enemy == abilityOwned.causer)
+            if (enemy == null || enemy == owner)
                 continue;
 
             float dist = (enemy.transform.position - transform.position).sqrMagnitude;
@@ -45,6 +54,5 @@ public class TargetingComponent : MonoBehaviour
         }
 
         target = closestTarget;
-        return closestTarget;
     }
 }

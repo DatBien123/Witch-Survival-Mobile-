@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 [RequireComponent(typeof(CharacterController))]
 public class Character : MonoBehaviour, IDamageable
 {
@@ -8,6 +9,9 @@ public class Character : MonoBehaviour, IDamageable
     public Animator _animator;
     public HitReactionComponent hitReactionComponent;
     public AttributeComponent attributeComponent;
+    public AutoCastComponent autoCastComponent;
+    public TargetingComponent targetingComponent;
+    public AbilityComponent abilityComponent;
 
 
 
@@ -59,6 +63,10 @@ public class Character : MonoBehaviour, IDamageable
         _animator = GetComponent<Animator>();
         hitReactionComponent = GetComponent<HitReactionComponent>();
         attributeComponent = GetComponent<AttributeComponent>();
+        autoCastComponent = GetComponent<AutoCastComponent>();
+        targetingComponent = GetComponent<TargetingComponent>();
+        abilityComponent = GetComponent<AbilityComponent>();
+
     }
 
     protected virtual void Start() { }
@@ -83,25 +91,6 @@ public class Character : MonoBehaviour, IDamageable
 
     public void TakeDamage(float damage)
     {
-        throw new System.NotImplementedException();
     }
-    public List<Ability> abilities;
-    public void AddAbility(Ability ability)
-    {
-        abilities.Add(ability);
-    }
-    public void RemoveAbility(Ability ability) { 
-        abilities.Remove(ability); 
-    }
-    public void ActivateAbility(Ability abilityPrefab)
-    {
-        Ability abilityInstance = Instantiate(
-            abilityPrefab,
-            transform.position + new Vector3(0, 1.5f, 0),
-            transform.rotation
-        );
-        abilityInstance.causer = this;
 
-        abilityInstance.Activate(abilityInstance.targetingComponent.FindNearestTarget());
-    }
 }

@@ -923,6 +923,18 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4416926083347132246}
+    - targetCorrespondingSourceObject: {fileID: 4416926081852918481, guid: 64dce48905ffd9b4293e595fa6941544,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4416926083347132247}
+    - targetCorrespondingSourceObject: {fileID: 4416926081852918481, guid: 64dce48905ffd9b4293e595fa6941544,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4416926083347132248}
+    - targetCorrespondingSourceObject: {fileID: 4416926081852918481, guid: 64dce48905ffd9b4293e595fa6941544,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4416926083347132249}
   m_SourcePrefab: {fileID: 100100000, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
 --- !u!1 &1764214107
 GameObject:
@@ -1493,6 +1505,7 @@ GameObject:
   - component: {fileID: 7440877651047385940}
   - component: {fileID: 7440877651047385938}
   - component: {fileID: 7440877651047385942}
+  - component: {fileID: 7440877651047385943}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Player
@@ -2535,6 +2548,9 @@ MonoBehaviour:
   _animator: {fileID: 0}
   hitReactionComponent: {fileID: 0}
   attributeComponent: {fileID: 0}
+  autoCastComponent: {fileID: 0}
+  targetingComponent: {fileID: 0}
+  abilityComponent: {fileID: 0}
   MoveSpeed: 2
   SprintSpeed: 5.335
   RotationSmoothTime: 0.12
@@ -2549,8 +2565,6 @@ MonoBehaviour:
   GroundLayers:
     serializedVersion: 2
     m_Bits: 1
-  abilities:
-  - {fileID: 7345645707686420024, guid: 1fcfcb93d7455e94bb4991c5ab289a41, type: 3}
   CinemachineCameraTarget: {fileID: 960265431}
   TopClamp: 70
   BottomClamp: -30
@@ -2609,6 +2623,57 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
+--- !u!114 &4416926083347132247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572495689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28a966dcb981ac04a838ffd9bac2aac2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 0}
+--- !u!114 &4416926083347132248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572495689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b86b7eae21807c840bbd05aa7b61ea41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 0}
+  target: {fileID: 0}
+  searchRadius: 10
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!114 &4416926083347132249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572495689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 740e5305cbf4c34469a4f4a50e4cfa3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 0}
+  abilitiesRuntime:
+  - ability: {fileID: 7345645707686420024, guid: 1fcfcb93d7455e94bb4991c5ab289a41,
+      type: 3}
+    level: 1
+    currentCooldown: 0
+    Cooldown: 0
+    isActivateAble: 0
 --- !u!4 &4440954422979676338
 Transform:
   m_ObjectHideFlags: 0
@@ -3521,6 +3586,9 @@ MonoBehaviour:
   _animator: {fileID: 0}
   hitReactionComponent: {fileID: 0}
   attributeComponent: {fileID: 0}
+  autoCastComponent: {fileID: 0}
+  targetingComponent: {fileID: 0}
+  abilityComponent: {fileID: 0}
   MoveSpeed: 2
   SprintSpeed: 5.335
   RotationSmoothTime: 0.12
@@ -3535,7 +3603,6 @@ MonoBehaviour:
   GroundLayers:
     serializedVersion: 2
     m_Bits: 1
-  abilities: []
 --- !u!114 &7440877651047385940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3551,10 +3618,10 @@ MonoBehaviour:
   owner: {fileID: 0}
   HP:
     AttributeType: 0
-    amount: 0
+    amount: 300
   HP_Max:
     AttributeType: 0
-    amount: 0
+    amount: 300
   MP:
     AttributeType: 2
     amount: 0
@@ -3612,6 +3679,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
+--- !u!114 &7440877651047385943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838550876710330786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b86b7eae21807c840bbd05aa7b61ea41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 0}
+  target: {fileID: 0}
+  searchRadius: 10
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!4 &7502308555518486089
 Transform:
   m_ObjectHideFlags: 0

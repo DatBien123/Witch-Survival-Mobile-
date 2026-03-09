@@ -13,9 +13,10 @@ public class AutoCastComponent : MonoBehaviour
 
     private void Update()
     {
-        foreach(Ability ability in owner.abilities)
+        foreach (AbilityRuntime abilityRuntime in owner.abilityComponent.abilitiesRuntime)
         {
-            ability.Activate(ability.targetingComponent.FindNearestTarget());
+            if(owner.targetingComponent.target)
+            abilityRuntime.ability.Activate(owner, owner.targetingComponent.target);
         }
     }
 }
