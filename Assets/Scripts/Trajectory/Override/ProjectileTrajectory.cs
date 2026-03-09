@@ -1,9 +1,11 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ProjectileTrajectory : Trajectory
 {
     public Rigidbody rb;
     public float speed = 10f;
+
+    public LayerMask targetLayer;   // layer mà projectile được phép hit
 
     private void Awake()
     {
@@ -22,17 +24,21 @@ public class ProjectileTrajectory : Trajectory
     }
     private void OnTriggerEnter(Collider other)
     {
+        // Check layer trước
+        if ((targetLayer.value & (1 << other.gameObject.layer)) == 0)
+            return;
+
         Character hitTarget = other.GetComponent<Character>();
+        if (hitTarget == null || hitTarget == caster)
+            return;
+
         Debug.Log("Hit target is: " + hitTarget.gameObject.name);
 
-        if (hitTarget != null && hitTarget != caster)
+        foreach (SO_Effect effect in ability.abilityData.data.effects)
         {
-            foreach (SO_Effect effect in ability.abilityData.data.effects)
-            {
-                effect.data.ApplyEffect(hitTarget);
-            }
-
-            Destroy(gameObject);
+            effect.data.ApplyEffect(hitTarget);
         }
+
+        Destroy(gameObject);
     }
 }

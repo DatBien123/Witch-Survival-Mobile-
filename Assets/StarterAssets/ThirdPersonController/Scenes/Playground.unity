@@ -913,12 +913,16 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4416926081852918481, guid: 64dce48905ffd9b4293e595fa6941544,
         type: 3}
-      insertIndex: -1
+      insertIndex: 3
       addedObject: {fileID: 4416926083347132240}
     - targetCorrespondingSourceObject: {fileID: 4416926081852918481, guid: 64dce48905ffd9b4293e595fa6941544,
         type: 3}
-      insertIndex: -1
+      insertIndex: 4
       addedObject: {fileID: 4416926083347132241}
+    - targetCorrespondingSourceObject: {fileID: 4416926081852918481, guid: 64dce48905ffd9b4293e595fa6941544,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4416926083347132246}
   m_SourcePrefab: {fileID: 100100000, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
 --- !u!1 &1764214107
 GameObject:
@@ -1485,9 +1489,10 @@ GameObject:
   - component: {fileID: 6199448893892387170}
   - component: {fileID: 7440877651047385941}
   - component: {fileID: 838550876710330792}
-  - component: {fileID: 7440877651047385938}
-  - component: {fileID: 7440877651047385940}
   - component: {fileID: 7440877651047385939}
+  - component: {fileID: 7440877651047385940}
+  - component: {fileID: 7440877651047385938}
+  - component: {fileID: 7440877651047385942}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Player
@@ -2526,6 +2531,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38119aacf92cab14cabba26cb15df7a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _controller: {fileID: 0}
+  _animator: {fileID: 0}
+  hitReactionComponent: {fileID: 0}
+  attributeComponent: {fileID: 0}
   MoveSpeed: 2
   SprintSpeed: 5.335
   RotationSmoothTime: 0.12
@@ -2587,6 +2596,19 @@ MonoBehaviour:
   Speed:
     AttributeType: 0
     amount: 0
+--- !u!114 &4416926083347132246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572495689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d198fd273fb5594498fca03732a5d02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 0}
 --- !u!4 &4440954422979676338
 Transform:
   m_ObjectHideFlags: 0
@@ -3495,6 +3517,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 904979b57bb370a4fb71032d1fb93f5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _controller: {fileID: 0}
+  _animator: {fileID: 0}
+  hitReactionComponent: {fileID: 0}
+  attributeComponent: {fileID: 0}
   MoveSpeed: 2
   SprintSpeed: 5.335
   RotationSmoothTime: 0.12
@@ -3573,6 +3599,19 @@ CapsuleCollider:
   m_Height: 2.09
   m_Direction: 1
   m_Center: {x: 0, y: 0.75, z: 0}
+--- !u!114 &7440877651047385942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838550876710330786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d198fd273fb5594498fca03732a5d02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 0}
 --- !u!4 &7502308555518486089
 Transform:
   m_ObjectHideFlags: 0

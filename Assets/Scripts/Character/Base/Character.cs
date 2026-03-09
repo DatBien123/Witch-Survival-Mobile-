@@ -4,10 +4,10 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class Character : MonoBehaviour, IDamageable
 {
-    public CharacterController _controller { get; private set; }
-    public Animator _animator { get; private set; }
-    public HitReactionComponent hitReactionComponent { get; private set; }
-    public AttributeComponent attributeComponent { get; private set; }
+    public CharacterController _controller;
+    public Animator _animator;
+    public HitReactionComponent hitReactionComponent;
+    public AttributeComponent attributeComponent;
 
 
 
