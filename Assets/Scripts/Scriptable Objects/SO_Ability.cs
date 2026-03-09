@@ -9,5 +9,5 @@ public class SO_Ability : ScriptableObject
 [CreateAssetMenu(menuName = "Ability/Effect Data", fileName = "Effect Data")]
 public class SO_Effect : ScriptableObject
 {
-    public Effects data;
+    public EffectData data;
 }

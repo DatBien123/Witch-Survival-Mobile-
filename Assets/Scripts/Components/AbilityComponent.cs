@@ -7,6 +7,10 @@ using UnityEngine.InputSystem;
 public class AbilityRuntime
 {
     public Ability ability;
+    public List<Effects> effects;
+
+    public Character causer;
+    public Character target;
 
     public int level;
     public float currentCooldown;
@@ -32,7 +36,6 @@ public class AbilityComponent : MonoBehaviour
     {
         if (Keyboard.current.xKey.wasPressedThisFrame)
         {
-            Debug.Log("AAA");
             if (abilitiesRuntime.Count > 0)
             {
                 ActivateAbility(abilitiesRuntime[0]);
@@ -55,22 +58,35 @@ public class AbilityComponent : MonoBehaviour
 
         StartCooldown(abilityRuntime);
 
-        Ability abilityInstance = Instantiate(
-            abilityRuntime.ability,
-            transform.position + new Vector3(0, 1.5f, 0),
-            transform.rotation
-        );
-        abilityInstance.causer = owner;
+        abilityRuntime.causer = owner;
+        abilityRuntime.target = owner.targetingComponent.target;
 
-        abilityInstance.Activate(owner, owner.targetingComponent.target);
+        SpawnAbility(abilityRuntime);
+
+        //Ability abilityInstance = Instantiate(
+        //    abilityRuntime.ability,
+        //    transform.position + new Vector3(0, .75f, .5f),
+        //    transform.rotation
+        //);
+
+        //abilityInstance.Activate(owner, owner.targetingComponent.target);
+    }
+
+    public void SpawnAbility( AbilityRuntime abilityRuntime)
+    {
+        if (abilityRuntime.ability.abilityData.data.spawnVFX)
+            VFXManager.Instance.SpawnAbility(abilityRuntime);
+
+        if (abilityRuntime.ability.abilityData.data.playSFX && abilityRuntime.ability.abilityData.data.sfxClip != null)
+            AudioManager.Instance.PlaySFX(abilityRuntime.ability.abilityData.data.sfxClip,
+                abilityRuntime.ability.abilityData.data.volume);
     }
 
     #region [Cooldown]
     Coroutine C_Cooldown;
     public void StartCooldown(AbilityRuntime abilityRuntime)
     {
-        if (C_Cooldown != null) StopCoroutine(C_Cooldown);
-        C_Cooldown = StartCoroutine(Cooldown(abilityRuntime));
+            StartCoroutine(Cooldown(abilityRuntime));
     }
     IEnumerator Cooldown(AbilityRuntime abilityRuntime)
     {

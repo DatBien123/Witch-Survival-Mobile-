@@ -3,7 +3,7 @@ public interface IAbility
 {
 
     #region [Game Actions]
-    void Activate(Character causer, Character target = null);
+    void Activate(Character causer, Character target, Effects effects);
     void Cancel();
     void Deactivate();
     #endregion

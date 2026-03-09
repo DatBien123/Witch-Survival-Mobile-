@@ -15,8 +15,7 @@ public class AutoCastComponent : MonoBehaviour
     {
         foreach (AbilityRuntime abilityRuntime in owner.abilityComponent.abilitiesRuntime)
         {
-            if(owner.targetingComponent.target)
-            abilityRuntime.ability.Activate(owner, owner.targetingComponent.target);
+            owner.abilityComponent.ActivateAbility(abilityRuntime);
         }
     }
 }

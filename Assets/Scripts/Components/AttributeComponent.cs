@@ -20,46 +20,9 @@ public class AttributeComponent : MonoBehaviour
     {
         owner = GetComponent<Character>();
     }
-    public void StartUpdateAttributes(Effects effectData)
-    {
-        if (effectData.type == EffectType.Instant)
-        {
-            //Update Attribute Instantly
-            UpdateAttribute(effectData);
-        }
-        else if(effectData.type == EffectType.Duration)
-        {
-            //Update Attribute Duration
-            StartCoroutine(UpdateAttributes(effectData));
-        }
-    }
 
-    float elapsedTime = 0.0f;
-    float elapsedPerTimeUpdate = 0.0f;
-    IEnumerator UpdateAttributes(Effects effectData)
-    {
-        //if (effectData.isApplyOnStart)
-        //{
-        //    UpdateAttribute(effectData);
-        //}
 
-        while (elapsedTime < effectData.duration)
-        {
-            if(elapsedPerTimeUpdate >= effectData.perTimeUpdate)
-            {
-                UpdateAttribute(effectData);
-                elapsedPerTimeUpdate = 0;
-            }
-            elapsedTime += Time.deltaTime;
-            elapsedPerTimeUpdate+= Time.deltaTime;
-            yield return null;
-        }
-
-        elapsedPerTimeUpdate = 0;
-        elapsedTime = 0;
-    }
-
-    void UpdateAttribute(Effects effectData)
+    public void UpdateAttribute(EffectData effectData)
     {
         switch (effectData.attributes.AttributeType)
         {

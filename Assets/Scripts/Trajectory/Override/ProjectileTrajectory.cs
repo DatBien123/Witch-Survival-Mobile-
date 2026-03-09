@@ -1,15 +1,23 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class ProjectileTrajectory : Trajectory
 {
-    public Rigidbody rb;
     public float speed = 10f;
 
-    public LayerMask targetLayer;   // layer mà projectile được phép hit
+    public LayerMask targetLayer;
 
-    private void Awake()
+    public float maxDistance = 10f;
+
+    public bool isDestroyAfterCollide = true;
+    public bool isChaseTarget = false;
+
+    Vector3 startPosition;
+
+    Coroutine moveRoutine;
+    protected override void Awake()
     {
-        rb = GetComponent<Rigidbody>();
+        base.Awake();
     }
 
     public override void Execute(Character casterTemp, Character targetTemp, Ability abilityTemp)
@@ -17,28 +25,59 @@ public class ProjectileTrajectory : Trajectory
         caster = casterTemp;
         target = targetTemp;
         ability = abilityTemp;
+        
 
-        Vector3 dir = (target.transform.position - caster.transform.position).normalized;
+        startPosition = transform.position;
 
-        rb.velocity = dir * speed;
+        moveRoutine = StartCoroutine(Move());
     }
+
+    IEnumerator Move()
+    {
+        Vector3 direction;
+
+        while (true)
+        {
+            if (isChaseTarget && target != null)
+            {
+                direction = (target.transform.position + new Vector3(0, 0.75f, 0) - transform.position).normalized;
+            }
+            else
+            {
+                direction = transform.forward;
+            }
+
+            transform.position += direction * speed * Time.deltaTime;
+
+            float distance = (transform.position - startPosition).sqrMagnitude;
+
+            if (distance > maxDistance * maxDistance)
+            {
+                gameObject.GetComponent<VFXInstance>().pool.Free(vfxInstance);
+                yield break;
+            }
+
+            yield return null;
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        // Check layer trước
         if ((targetLayer.value & (1 << other.gameObject.layer)) == 0)
             return;
 
         CharacterEnemy hitTarget = other.GetComponent<CharacterEnemy>();
+        Debug.Log("Hit Target: " + hitTarget.gameObject.name);
+
         if (hitTarget == null || hitTarget == caster)
             return;
 
-        Debug.Log("Hit target is: " + hitTarget.gameObject.name);
+            ability.effects.ApplyEffect(hitTarget);
 
-        foreach (SO_Effect effect in ability.abilityData.data.effects)
+
+        if (isDestroyAfterCollide)
         {
-            effect.data.ApplyEffect(hitTarget);
+            gameObject.GetComponent<VFXInstance>().pool.Free(vfxInstance);
         }
-
-        Destroy(gameObject);
     }
 }

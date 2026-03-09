@@ -125,6 +125,108 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &236053791
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 236053792}
+  m_Layer: 0
+  m_Name: Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &236053792
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236053791}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 329.71198, y: 48.83642, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 325779670}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &325779669
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 325779670}
+  - component: {fileID: 325779671}
+  m_Layer: 0
+  m_Name: VFX Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &325779670
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325779669}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 236053792}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &325779671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325779669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc5501f8aae63e141837390bc59d9a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vfxAttackPools:
+  - index: 0
+    prefab: {fileID: 3703263350944696513, guid: 1fcfcb93d7455e94bb4991c5ab289a41,
+      type: 3}
+    poolCount: 10
+  - index: 1
+    prefab: {fileID: 2282837800000092771, guid: 68a0ef4dcae9aa14687734d594059d40,
+      type: 3}
+    poolCount: 10
+  - index: 2
+    prefab: {fileID: -8657397546967373520, guid: afbfa7d0f636e0a4db9f7f5959f3399e,
+      type: 3}
+    poolCount: 10
+  vfxReactionPools:
+  - index: 0
+    prefab: {fileID: 7970299631302449485, guid: a17580581e360e74db460cc3d5dc0396,
+      type: 3}
+    poolCount: 10
+  - index: 1
+    prefab: {fileID: -442986581812261650, guid: 2a08b3071ec108040959cc25cf08be4b,
+      type: 3}
+    poolCount: 10
+  - index: 2
+    prefab: {fileID: -9017541341667916700, guid: 73a45666000e9ab44a46a4a4da5ff8f1,
+      type: 3}
+    poolCount: 10
 --- !u!1 &542508511
 GameObject:
   m_ObjectHideFlags: 0
@@ -2674,6 +2776,12 @@ MonoBehaviour:
     currentCooldown: 0
     Cooldown: 0
     isActivateAble: 0
+  - ability: {fileID: -1680303139990138882, guid: 68a0ef4dcae9aa14687734d594059d40,
+      type: 3}
+    level: 1
+    currentCooldown: 0
+    Cooldown: 0
+    isActivateAble: 0
 --- !u!4 &4440954422979676338
 Transform:
   m_ObjectHideFlags: 0
@@ -4436,3 +4544,4 @@ SceneRoots:
   - {fileID: 65567420753459992}
   - {fileID: 1979352518}
   - {fileID: 746329221}
+  - {fileID: 236053792}
