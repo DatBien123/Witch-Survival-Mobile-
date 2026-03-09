@@ -2772,12 +2772,20 @@ MonoBehaviour:
   abilitiesRuntime:
   - ability: {fileID: 7345645707686420024, guid: 1fcfcb93d7455e94bb4991c5ab289a41,
       type: 3}
+    effects: {fileID: -3503437981079521768, guid: a17580581e360e74db460cc3d5dc0396,
+      type: 3}
+    causer: {fileID: 0}
+    target: {fileID: 0}
     level: 1
     currentCooldown: 0
     Cooldown: 0
     isActivateAble: 0
   - ability: {fileID: -1680303139990138882, guid: 68a0ef4dcae9aa14687734d594059d40,
       type: 3}
+    effects: {fileID: 315661825542913575, guid: 2a08b3071ec108040959cc25cf08be4b,
+      type: 3}
+    causer: {fileID: 0}
+    target: {fileID: 0}
     level: 1
     currentCooldown: 0
     Cooldown: 0

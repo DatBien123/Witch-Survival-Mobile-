@@ -9830,7 +9830,7 @@ MonoBehaviour:
   causer: {fileID: 0}
   target: {fileID: 0}
   trajectory: {fileID: 0}
-  effects: {fileID: 0}
+  effects: {fileID: 315661825542913575, guid: 2a08b3071ec108040959cc25cf08be4b, type: 3}
   abilityData: {fileID: 11400000, guid: 95852cc8f73928f46a6ce695ee6ace4c, type: 2}
 --- !u!114 &2282837800000092771
 MonoBehaviour:

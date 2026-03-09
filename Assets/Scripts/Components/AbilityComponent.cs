@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class AbilityRuntime
 {
     public Ability ability;
-    public List<Effects> effects;
+    public Effects effects;
 
     public Character causer;
     public Character target;

@@ -41,7 +41,6 @@ public class EffectRuntime
     public Character target;
 
     public SO_Effect effect;
-    public ParticleSystem particleSystem;
     public int level;
 }
 
@@ -53,16 +52,16 @@ public class Effects : MonoBehaviour
 
     public UnityAction<Character, EffectRuntime> OnEffectApplied;
 
-    void OnEnable()
-    {
-        OnEffectApplied += OnEffectApply;
-    }
-    void OnDisable()
-    {
-        OnEffectApplied -= OnEffectApply;
-    }
+    //void OnEnable()
+    //{
+    //    OnEffectApplied += OnEffectApply;
+    //}
+    //void OnDisable()
+    //{
+    //    OnEffectApplied -= OnEffectApply;
+    //}
 
-    private void OnEffectApply(Character target, EffectRuntime effectRuntime)
+    public void OnEffectApply(EffectRuntime effectRuntime)
     {
         if (effectRuntime.effect.data.spawnVFX)
             VFXManager.Instance.SpawnEffect(effectRuntime);
@@ -74,6 +73,7 @@ public class Effects : MonoBehaviour
 
         foreach (EffectRuntime effectRuntime in effectsRuntime)
         {
+            effectRuntime.target = target;
             StartEffect(effectRuntime);
         }
     }
@@ -85,6 +85,7 @@ public class Effects : MonoBehaviour
 
         if (effectRuntime.effect.data.type == EffectType.Instant)
         {
+            OnEffectApply(effectRuntime);
             currentTarget.attributeComponent.UpdateAttribute(effectRuntime.effect.data);
         }
         else if (effectRuntime.effect.data.type == EffectType.Duration)
@@ -104,7 +105,7 @@ public class Effects : MonoBehaviour
             {
                 currentTarget.attributeComponent.UpdateAttribute(effectRuntime.effect.data);
                 elapsedPerTimeUpdate = 0;
-                OnEffectApplied?.Invoke(currentTarget, effectRuntime);
+                OnEffectApply(effectRuntime);
             }
 
             elapsedTime += Time.deltaTime;

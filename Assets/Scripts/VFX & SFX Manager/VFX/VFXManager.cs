@@ -56,10 +56,10 @@ public class VFXManager : MonoBehaviour
 
                 var projectile = entry.pool.GetNew();
                 projectile.Play(abilityRuntime.causer.transform.position + abilityRuntime.ability.abilityData.data.offset.positionOffset,
-                    abilityRuntime.ability.abilityData.data.vfxLifeTime);
+                    abilityRuntime.ability.abilityData.data.vfxLifeTime, false);
 
                 Ability ability = projectile.GetComponent<Ability>();
-                ability.Activate(abilityRuntime.causer, abilityRuntime.target, abilityRuntime.ability.effects);
+                ability.Activate(abilityRuntime.causer, abilityRuntime.target, abilityRuntime.effects);
     }
 
     public void SpawnEffect(EffectRuntime effectRuntime)
@@ -71,10 +71,11 @@ public class VFXManager : MonoBehaviour
             return;
         }
 
+        Debug.Log("Spawn Effect");
         var entry = poolReactionLookup[effectRuntime.effect.data.vfxIndex];
 
         var effects = entry.pool.GetNew();
         effects.Play(effectRuntime.target.transform.position + effectRuntime.effect.data.offset.positionOffset,
-            effectRuntime.effect.data.vfxLifeTime);
+            effectRuntime.effect.data.vfxLifeTime, true);
     }
 }

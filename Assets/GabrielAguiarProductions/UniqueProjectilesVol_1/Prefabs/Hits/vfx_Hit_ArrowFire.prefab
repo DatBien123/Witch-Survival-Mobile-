@@ -14611,7 +14611,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e0dd981abcf10348b2af8159d393a10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectsRuntime: []
+  effectsRuntime:
+  - target: {fileID: 0}
+    effect: {fileID: 11400000, guid: 55fe53435d863484296e193bf885d878, type: 2}
+    level: 1
   currentTarget: {fileID: 0}
 --- !u!114 &-442986581812261650
 MonoBehaviour:

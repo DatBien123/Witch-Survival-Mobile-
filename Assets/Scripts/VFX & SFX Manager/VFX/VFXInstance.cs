@@ -17,13 +17,14 @@ public class VFXInstance : MonoBehaviour, IObjectPool<VFXInstance>
 
     public float defaultLifeTime = 1f;
 
-    public void Play(Vector3 position, float lifeTime)
+    public void Play(Vector3 position, float lifeTime, bool useLifeTime)
     {
         transform.position = position;
 
         if (lifeTime <= 0)
             lifeTime = defaultLifeTime;
 
-        //StartCoroutine(pool.Free(this, lifeTime));
+        if(useLifeTime)
+        StartCoroutine(pool.Free(this, lifeTime));
     }
 }
