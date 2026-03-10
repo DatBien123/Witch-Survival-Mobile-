@@ -1,8 +1,10 @@
 public enum EAttributeType
 {
     HP,
+    HP_Max,
     HP_Regen,
     MP,
+    MP_Max,
     MP_Regen,
     AD,
     AP,

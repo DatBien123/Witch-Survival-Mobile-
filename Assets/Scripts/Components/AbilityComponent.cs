@@ -77,9 +77,9 @@ public class AbilityComponent : MonoBehaviour
         if (abilityRuntime.ability.abilityData.data.spawnVFX)
             VFXManager.Instance.SpawnAbility(abilityRuntime);
 
-        if (abilityRuntime.ability.abilityData.data.playSFX && abilityRuntime.ability.abilityData.data.sfxClip != null)
-            AudioManager.Instance.PlaySFX(abilityRuntime.ability.abilityData.data.sfxClip,
-                abilityRuntime.ability.abilityData.data.volume);
+        //if (abilityRuntime.ability.abilityData.data.playSFX && abilityRuntime.ability.abilityData.data.sfxClip != null)
+        //    AudioManager.Instance.PlaySFX(abilityRuntime.ability.abilityData.data.sfxClip,
+        //        abilityRuntime.ability.abilityData.data.volume);
     }
 
     #region [Cooldown]

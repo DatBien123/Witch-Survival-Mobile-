@@ -15,6 +15,7 @@ public struct AbilityData
 {
     [Header("Logics")]
     public float cooldown;
+    public bool isSpawnToTarget;
     public bool isDestroyAfterCollide;
     public bool isChaseTarget;
 

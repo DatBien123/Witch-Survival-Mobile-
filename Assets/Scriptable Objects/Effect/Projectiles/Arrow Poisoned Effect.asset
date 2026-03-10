@@ -9,22 +9,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b510b5b383b8c74db799f5a776bef1a, type: 3}
-  m_Name: Arrow Blue
+  m_Script: {fileID: 11500000, guid: 06499825e8812a1469d4b6d039e76e30, type: 3}
+  m_Name: Arrow Poisoned Effect
   m_EditorClassIdentifier: 
   data:
-    cooldown: 2
-    isDestroyAfterCollide: 0
-    isChaseTarget: 0
+    attributes:
+      AttributeType: 0
+      amount: -10
+    type: 0
     spawnVFX: 1
-    vfxIndex: 0
-    vfxLifeTime: 2
+    vfxIndex: 3
+    vfxLifeTime: 1
     offset:
-      positionOffset: {x: 0, y: 0, z: 0}
+      positionOffset: {x: 0, y: 0.75, z: 0}
       rotationOffset: {x: 0, y: 0, z: 0}
       scaleOffset: {x: 0, y: 0, z: 0}
     playSFX: 0
     sfxClip: {fileID: 0}
     volume: 0
-    effects:
-    - {fileID: 11400000, guid: 55fe53435d863484296e193bf885d878, type: 2}
+    isApplyOnStart: 0
+    duration: 0
+    perTimeUpdate: 0

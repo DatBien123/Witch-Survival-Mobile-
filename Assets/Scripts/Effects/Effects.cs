@@ -21,6 +21,7 @@ public struct EffectData
 
     [Header("Settings")]
     public bool spawnVFX;
+    public bool spawnToTarget;
     public int vfxIndex;
     public float vfxLifeTime;
     public Offset offset;
